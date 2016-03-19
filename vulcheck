@@ -1,0 +1,15 @@
+#!/bin/bash
+
+
+# Shellshock testing 
+env x='() { :;}; echo vulnerable' bash -c "echo testing shellshock1"
+env X='() { (a)=>\' bash -c "echo date"; [ -f echo ] && echo vulnerable to shellshock2
+bash -c 'true <<EOF <<EOF <<EOF <<EOF <<EOF <<EOF <<EOF <<EOF <<EOF <<EOF <<EOF <<EOF <<EOF <<EOF' ||
+echo "CVE-2014-7186 vulnerable, redir_stack, shellshock2"
+(for x in {1..200} ; do echo "for x$x in ; do :"; done; for x in {1..200} ; do echo done ; done) | bash ||
+echo "CVE-2014-7187 vulnerable, word_lineno shellshock3"
+
+
+
+
+
