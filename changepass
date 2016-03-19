@@ -1,10 +1,10 @@
 #!/bin/bash
-
+my_shell=`cat /etc/passwd | grep $USER | cut -d: -f7`
 for usershell in $( cat /etc/passwd | cut -d: -f1,7 ) ; do
     user=`echo "$usershell" | cut -d: -f1`
     shell=`echo "$usershell" | cut -d: -f2`
     case $shell in 
-       /bin/bash) 
+       $my_shell) 
             echo change passord for $user
             passwd $user
            ;;
