@@ -1,0 +1,18 @@
+#!/bin/bash
+# Author - lucible
+
+if [ "$USER" == "$1" ]; then
+    echo dont kill yourself
+    exit;
+fi
+
+# kill all proceses for a currnet user
+pkill -u "$1"
+
+# safety first
+cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak
+
+# ban the user 
+dn=`cat /etc/ssh/sshd_config | grep DenyUsers`
+
+replace "$dn" "$dn$1" -- /etc/ssh/sshd_config 
