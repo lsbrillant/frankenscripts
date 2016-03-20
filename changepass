@@ -5,7 +5,7 @@ for usershell in $( cat /etc/passwd | cut -d: -f1,7 ) ; do
     shell=`echo "$usershell" | cut -d: -f2`
     case $shell in 
        $my_shell) 
-            echo change passord for $user
+            echo change password for $user
             passwd $user
            ;;
         *) ;;

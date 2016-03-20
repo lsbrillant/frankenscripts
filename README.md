@@ -1,8 +1,12 @@
 Mary Shellys Frankenscripts 
 ---------------------------
-changepass:
- - changes the password for any user that has the same login shell as the user running the script.
- - prompts you for the password and tells you what user.
-
+ - changepass:
+   - changes the password for any user that has the same login shell as the user running the script.
+   - prompts you for the password and tells you what user.
+ - kban:
+   - kills all proceses for a user.
+   - bans the user from ssh.
+ - vulcheck:
+   - checks for shellshock vulnerablility.
 
 
