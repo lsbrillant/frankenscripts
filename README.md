@@ -8,5 +8,6 @@ Mary Shellys Frankenscripts
    - bans the user from ssh.
  - vulcheck:
    - checks for shellshock vulnerablility.
-
-
+iptables-config:
+ - sets iptables rules to be fairly paranoid
+ - usage: `./iptables-config [-h/-?] [-s <ssh_port>] [-p <port_1>,<port_2>,...,<port_n>]`
