@@ -15,6 +15,6 @@ cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak
 # ban the user 
 dn=`cat /etc/ssh/sshd_config | grep DenyUsers`
 
-replace "$dn" "$dn$1" -- /etc/ssh/sshd_config
+replace "$dn" "$dn $1" -- /etc/ssh/sshd_config
 
 echo user: $1 baned from ssh, please restart the ssh daemon to make this take effect 
